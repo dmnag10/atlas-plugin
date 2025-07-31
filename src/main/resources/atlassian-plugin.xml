@@ -1,0 +1,27 @@
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2">
+    <plugin-info>
+        <description>${project.description}</description>
+        <version>${project.version}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}" />
+        <param name="plugin-icon">images/pluginIcon.png</param>
+        <param name="plugin-logo">images/pluginLogo.png</param>
+    </plugin-info>
+
+    <!-- add our i18n resource -->
+    <resource type="i18n" name="i18n" location="atlasPlugin"/>
+    
+    <!-- add our web resources -->
+    <web-resource key="atlasPlugin-resources" name="atlasPlugin Web Resources">
+        <dependency>com.atlassian.auiplugin:ajs</dependency>
+        
+        <resource type="download" name="atlasPlugin.css" location="/css/atlasPlugin.css"/>
+        <resource type="download" name="atlasPlugin.js" location="/js/atlasPlugin.js"/>
+        <resource type="download" name="images/" location="/images"/>
+
+        <context>atlasPlugin</context>
+    </web-resource>
+    <rest name="Comment REST" i18n-name-key="comment-rest.name"
+          key="comment-rest" path="/comment-service" version="1.0">
+        <description>Comment REST Module</description>
+    </rest>
+</atlassian-plugin>
